@@ -1,19 +1,15 @@
 $(document).ready(function () {
   let button = $('.price__button');
-  let miniImage = $('.minicard--image');
-  let miniHotel = $('.minihotel__card');
-  let testImage = $('.test-image');
 
-  $(button).click(function (e) { 
-    let imgSrc = $('.minihotel__card').find('.test-image').attr('src');
-    let titleCard = $('.minihotel__card').find('.info__title--text').text();
-    let descriptionCard = $('.minihotel__card').find('.info__description--text').text();
-    let adressCard = $('.minihotel__card').find('#adress').text();
-    let guestsCard = $('.minihotel__card').find('#guests').text();
-    let roomCard = $('.minihotel__card').find('#room').text();
-    let fullCard = $('.minihotel__card').find('#pricefull').text();
-    let actualCard = $('.minihotel__card').find('#priceactual').text();
-    let test = `
+  $(button).click(function () { 
+    let imgSrc = $(button).parent().parent().parent().find('.test-image').attr('src');
+    let titleCard = $(button).parent().find('.info__title--text').text();
+    let adressCard = $(button).parent().find('.adress').text();
+    let guestsCard = $(button).parent().find('.guests').text();
+    let roomCard = $(button).parent().find('.room').text();
+    let fullCard = $(button).parent().find('.pricefull').text();
+    let actualCard = $(button).parent().find('.priceactual').text();
+    let bigCard = `
             <div class="hotel__card">
               <div class="hotel__card--image">
                 <div class="flash">
@@ -69,21 +65,77 @@ $(document).ready(function () {
             </div>
             <!-- /.hotel__card -->
     `
-    if ($(".hotel__card--info").length !== 0 ){
-      // делаем здесь что-то 
-      $("#test").append("Элемент mydiv есть ");
     
+
+    let smallCard = `
+    <div class="minihotel__card">
+    <div class="minihotel--image">
+      <div class="miniflash">
+        <span class="miniflash__text">Flash Offer</span>
+      </div>
+      <img src="img/hero/hotel1.png" alt="test" class="test-image">
+      <img src="img/hotels/hotel2.png" alt="hotel2" class="minicard__image">
+    </div>
+    <!-- /.minihotel--image -->
+    <div class="miniinfo minihotel__card--info">
+      <div class="minititle info__title">
+        <h2 class="info__title--text">LUX* Belle Mare</h2>
+      </div>
+      <!-- /.info__title -->
+      <div class="characters info__characters info__characters--mimi">
+        <div class="characters__block">
+          <img src="img/hero/map-pin.svg" alt="map-pin" class="characters__image">
+          <span class="characters__text adress">1749 Wheeler Ridge  Delaware</span>
+        </div>
+        <div class="characters__block">
+          <img src="img/hero/user.svg" alt="user" class="characters__image">
+          <span class="characters__text guests">2 x Guests</span>
+        </div>
+        <div class="characters__block">
+          <img src="img/hero/home.svg" alt="home" class="characters__image">
+          <span class="characters__text room">1 x Room</span>
+        </div>
+      </div>
+      <!-- /.characters info__characters -->
+      <div class="price info__price">
+        <div class="price__sum">
+          <div class="price__full">
+            <span class="price__full--text pricefull">$ 5,500</span>
+          </div>
+          <div class="price__actual">
+            <span class="price__actual--text priceactual">$ 2,000</span>
+          </div>
+        </div>
+        <button class="price__button price__button--mimi" id="price-button">Book Now</button>
+      </div>
+      <!-- /.price info__price -->
+    </div>
+    <!-- /.minihotel__card--info -->
+  </div>
+  <!-- /.minihotel__card -->
+    `
+
+    if ($(window).find(".hotel__card--info")){
+      $('.hotel__card').parent().removeClass('col-lg-8 col-md-8 col-sm-12 col-12');
+      $('.hotel__card').parent().addClass('col-lg-4 col-md-4 col-sm-8');
+      $('.minihotel__card').parent().removeClass('col-lg-4 col-md-4 col-sm-8');
+      $('.minihotel__card').parent().addClass('col-lg-8 col-md-8 col-sm-12 col-12');
     }
 
-    showDialog(test);
-  
-    miniHotel.parent().removeClass('col-lg-4 col-md-4 col-sm-8');
-    miniHotel.parent().addClass('col-lg-8 col-md-8 col-sm-12 col-12');
+      miniShowDialog(smallCard);
+      showDialog(bigCard);
+
+
+    
     
   });
 
   function showDialog(text) {
-    $('#content').html(text);
+    $('.small').html(text);
+  }
+
+  function miniShowDialog(text) {
+    $('.big').html(text);
   }
   
 });
