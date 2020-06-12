@@ -2,13 +2,13 @@ $(document).ready(function () {
   let button = $('.price__button');
 
   $(button).click(function () { 
-    let imgSrc = $(button).parent().parent().parent().find('.test-image').attr('src');
-    let titleCard = $(button).parent().find('.info__title--text').text();
-    let adressCard = $(button).parent().find('.adress').text();
-    let guestsCard = $(button).parent().find('.guests').text();
-    let roomCard = $(button).parent().find('.room').text();
-    let fullCard = $(button).parent().find('.pricefull').text();
-    let actualCard = $(button).parent().find('.priceactual').text();
+    let imgSrc = $(this).parent().parent().parent().find('.test-image').attr('src');
+    let titleCard = $(this).parent().parent().find('.info__title--text').text();
+    let adressCard = $(this).parent().parent().find('.adress').text();
+    let guestsCard = $(this).parent().parent().find('.guests').text();
+    let roomCard = $(this).parent().parent().find('.room').text();
+    let fullCard = $(this).parent().find('.pricefull').text();
+    let actualCard = $(this).parent().find('.priceactual').text();
     let bigCard = `
             <div class="hotel__card">
               <div class="hotel__card--image">
@@ -66,7 +66,6 @@ $(document).ready(function () {
             <!-- /.hotel__card -->
     `
     
-
     let smallCard = `
     <div class="minihotel__card">
     <div class="minihotel--image">
@@ -118,25 +117,28 @@ $(document).ready(function () {
     if ($(window).find(".hotel__card--info")){
       $('.hotel__card').parent().removeClass('col-lg-8 col-md-8 col-sm-12 col-12');
       $('.hotel__card').parent().addClass('col-lg-4 col-md-4 col-sm-8');
-      $('.minihotel__card').parent().removeClass('col-lg-4 col-md-4 col-sm-8');
-      $('.minihotel__card').parent().addClass('col-lg-8 col-md-8 col-sm-12 col-12');
+      $(this).parent().parent().parent().parent().removeClass('col-lg-4 col-md-4 col-sm-8');
+      $(this).parent().parent().parent().parent().addClass('col-lg-8 col-md-8 col-sm-12 col-12');
     }
 
-      miniShowDialog(smallCard);
-      showDialog(bigCard);
+
+    $(this).parent().parent().parent().html(bigCard);
+    // $('.hotel__card').parent().html(smallCard);
+      // miniShowDialog(smallCard);
+      // showDialog(bigCard);
 
 
     
     
   });
 
-  function showDialog(text) {
-    $('.small').html(text);
-  }
+  // function showDialog(text) {
+  //   $('.small').html(text);
+  // }
 
-  function miniShowDialog(text) {
-    $('.big').html(text);
-  }
+  // function miniShowDialog(text) {
+  //   $('.big').html(text);
+  // }
   
 });
 
