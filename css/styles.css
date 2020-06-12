@@ -675,4 +675,8 @@ ul {
   visibility: visible;
   height: 100%;
 }
+
+.card__image--mini {
+  display: none;
+}
 /*# sourceMappingURL=styles.css.map */

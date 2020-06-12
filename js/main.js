@@ -69,6 +69,12 @@ $(document).ready(function () {
             </div>
             <!-- /.hotel__card -->
     `
+    if ($(".hotel__card--info").length !== 0 ){
+      // делаем здесь что-то 
+      $("#test").append("Элемент mydiv есть ");
+    
+    }
+
     showDialog(test);
   
     miniHotel.parent().removeClass('col-lg-4 col-md-4 col-sm-8');
