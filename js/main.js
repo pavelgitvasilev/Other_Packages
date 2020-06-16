@@ -1,22 +1,26 @@
 $(document).ready(function () {
-  let button = $('.price__button');
+  // let button = $('.price__button');
 
-  $(button).click(function () { 
-    let imgSrc = $(this).parent().parent().parent().find('.minicard__image').attr('src');
-    let imgSrcTest = $(this).parent().parent().parent().find('.test-image').attr('src');
-    let titleCard = $(this).parent().parent().find('.info__title--text').text();
-    let adressCard = $(this).parent().parent().find('.adress').text();
-    let guestsCard = $(this).parent().parent().find('.guests').text();
-    let roomCard = $(this).parent().parent().find('.room').text();
-    let fullCard = $(this).parent().find('.pricefull').text();
-    let actualCard = $(this).parent().find('.priceactual').text();
-    let miniImage = $('.hotel__card active').find('.card__image--mini').attr('src');
-    let miniTitle = $('.hotel__card active').find('.info__title--text').text();
-    let miniAdress = $('.hotel__card active').find('.adress').text();
-    let miniGuests = $('.hotel__card active').find('.guests').text();
-    let miniRoom = $('.hotel__card active').find('.roomcard').text();
-    let miniFull= $('.hotel__card active').find('.price__full--text').text();
-    let miniActual = $('.hotel__card active').find('.price__actual--text').text();
+    
+
+});
+
+function pick(thisBtn) {
+  let imgSrc = $(thisBtn).parent().parent().parent().find('.minicard__image').attr('src');
+    let imgSrcTest = $(thisBtn).parent().parent().parent().find('.test-image').attr('src');
+    let titleCard = $(thisBtn).parent().parent().find('.info__title--text').text();
+    let adressCard = $(thisBtn).parent().parent().find('.adress').text();
+    let guestsCard = $(thisBtn).parent().parent().find('.guests').text();
+    let roomCard = $(thisBtn).parent().parent().find('.room').text();
+    let fullCard = $(thisBtn).parent().find('.pricefull').text();
+    let actualCard = $(thisBtn).parent().find('.priceactual').text();
+    let miniImage = $('.hotel__card ').find('.card__image--mini').attr('src');
+    let miniTitle = $('.hotel__card ').find('.info__title--text').text();
+    let miniAdress = $('.hotel__card ').find('.adress').text();
+    let miniGuests = $('.hotel__card ').find('.guests').text();
+    let miniRoom = $('.hotel__card ').find('.roomcard').text();
+    let miniFull= $('.hotel__card ').find('.price__full--text').text();
+    let miniActual = $('.hotel__card ').find('.price__actual--text').text();
     let bigCard = `
             <div class="hotel__card active">
               <div class="hotel__card--image">
@@ -24,7 +28,7 @@ $(document).ready(function () {
                   <span class="flash__text">Flash Offer</span>
                 </div>
                 <img src="${imgSrcTest}" alt="hotel1" class="card__image">
-                <img src="${imgSrc}" alt="hotel1" class="card__image--mini"> 
+                <img src="${imgSrc}" alt="hotel2" class="card__image--mini"> 
               </div>
               <div class="info hotel__card--info" id="info-card">
                 <div class="info__rating">
@@ -67,7 +71,7 @@ $(document).ready(function () {
                       <span class="price__actual--text">${actualCard}</span>
                     </div>
                   </div>
-                  <button class="price__button">Book Now</button>
+                  <button class="price__button" onClick="pick(this)">Book Now</button>
                 </div>
                 <!-- /.price info__price -->
               </div>
@@ -114,7 +118,7 @@ $(document).ready(function () {
             <span class="price__actual--text priceactual">${miniActual}</span>
           </div>
         </div>
-        <button class="price__button price__button--mimi" id="price-button">Book Now</button>
+        <button class="price__button price__button--mimi" id="price-button" onClick="pick(this)">Book Now</button>
       </div>
       <!-- /.price info__price -->
     </div>
@@ -122,18 +126,14 @@ $(document).ready(function () {
   </div>
   <!-- /.minihotel__card -->
     `
-    // $('.hotel__card').addClass('active');
 
     if ($(window).find('.hotel__card')){
       $('.hotel__card').parent().removeClass('col-lg-8 col-md-8 col-sm-12 col-12');
       $('.hotel__card').parent().addClass('col-lg-4 col-md-4 col-sm-8');
       $('.hotel__card').parent().html(smallCard);
-      $(this).parent().parent().parent().parent().toggleClass('col-lg-4 col-md-4 col-sm-8');
-      $(this).parent().parent().parent().parent().toggleClass('col-lg-8 col-md-8 col-sm-12 col-12').html(bigCard);
-
+      $(thisBtn).parent().parent().parent().parent().removeClass('col-lg-4 col-md-4 col-sm-8');
+      $(thisBtn).parent().parent().parent().parent().addClass('col-lg-8 col-md-8 col-sm-12 col-12').html(bigCard);
+      
     }
-    
-  });
- 
-});
-
+    console.log('Вы клинкнули по кнопке');
+}
