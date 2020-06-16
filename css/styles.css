@@ -694,4 +694,27 @@ ul {
   max-height: 250px;
   border-radius: 10px 10px 0 0;
 }
+
+@media screen and (max-width: 576px) {
+  .hotel__card {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .hotel__card--image {
+    width: 100%;
+  }
+  .hotel__card--info {
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+  }
+  .card__image {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+  }
+  .minicard__image {
+    width: 100%;
+  }
+}
 /*# sourceMappingURL=styles.css.map */
