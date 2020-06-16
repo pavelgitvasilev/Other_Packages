@@ -3,26 +3,28 @@ $(document).ready(function () {
 
   $(button).click(function () { 
     let imgSrc = $(this).parent().parent().parent().find('.minicard__image').attr('src');
+    let imgSrcTest = $(this).parent().parent().parent().find('.test-image').attr('src');
     let titleCard = $(this).parent().parent().find('.info__title--text').text();
     let adressCard = $(this).parent().parent().find('.adress').text();
     let guestsCard = $(this).parent().parent().find('.guests').text();
     let roomCard = $(this).parent().parent().find('.room').text();
     let fullCard = $(this).parent().find('.pricefull').text();
     let actualCard = $(this).parent().find('.priceactual').text();
-    let miniImage = $('.hotel__card ').find('.card__image--mini').attr('src');
-    let miniTitle = $('.hotel__card ').find('.info__title--text').text();
-    let miniAdress = $('.hotel__card ').find('.adress').text();
-    let miniGuests = $('.hotel__card ').find('.guests').text();
-    let miniRoom = $('.hotel__card ').find('.roomcard').text();
-    let miniFull= $('.hotel__card ').find('.price__full--text').text();
-    let miniActual = $('.hotel__card ').find('.price__actual--text').text();
+    let miniImage = $('.hotel__card active').find('.card__image--mini').attr('src');
+    let miniTitle = $('.hotel__card active').find('.info__title--text').text();
+    let miniAdress = $('.hotel__card active').find('.adress').text();
+    let miniGuests = $('.hotel__card active').find('.guests').text();
+    let miniRoom = $('.hotel__card active').find('.roomcard').text();
+    let miniFull= $('.hotel__card active').find('.price__full--text').text();
+    let miniActual = $('.hotel__card active').find('.price__actual--text').text();
     let bigCard = `
             <div class="hotel__card active">
               <div class="hotel__card--image">
                 <div class="flash">
                   <span class="flash__text">Flash Offer</span>
                 </div>
-                <img src="${imgSrc}" alt="test" class="test-image--active"> 
+                <img src="${imgSrcTest}" alt="hotel1" class="card__image">
+                <img src="${imgSrc}" alt="hotel1" class="card__image--mini"> 
               </div>
               <div class="info hotel__card--info" id="info-card">
                 <div class="info__rating">
@@ -79,7 +81,8 @@ $(document).ready(function () {
       <div class="miniflash">
         <span class="miniflash__text">Flash Offer</span>
       </div>
-      <img src="${miniImage}" alt="test" class="test-image">
+      <img src="${imgSrcTest}" alt="test" class="test-image">
+      <img src="${miniImage}" alt="hotel2" class="minicard__image">
     </div>
     <!-- /.minihotel--image -->
     <div class="miniinfo minihotel__card--info">
@@ -119,12 +122,12 @@ $(document).ready(function () {
   </div>
   <!-- /.minihotel__card -->
     `
+    // $('.hotel__card').addClass('active');
 
-    if ($(window).find(".hotel__card")){
+    if ($(window).find('.hotel__card')){
       $('.hotel__card').parent().removeClass('col-lg-8 col-md-8 col-sm-12 col-12');
       $('.hotel__card').parent().addClass('col-lg-4 col-md-4 col-sm-8');
-      $('.hotel__card').addClass('active').html(smallCard);
-      // $(this).parent().parent().parent().parent().removeClass('col-lg-4 col-md-4 col-sm-8');
+      $('.hotel__card').parent().html(smallCard);
       $(this).parent().parent().parent().parent().toggleClass('col-lg-4 col-md-4 col-sm-8');
       $(this).parent().parent().parent().parent().toggleClass('col-lg-8 col-md-8 col-sm-12 col-12').html(bigCard);
 
