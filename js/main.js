@@ -1,7 +1,4 @@
 $(document).ready(function () {
-  // let button = $('.price__button');
-
-    
 
 });
 
