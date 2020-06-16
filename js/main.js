@@ -134,5 +134,5 @@ function pick(thisBtn) {
       $(thisBtn).parent().parent().parent().parent().addClass('col-lg-8 col-md-8 col-sm-12 col-12').html(bigCard);
       
     }
-    console.log('Вы клинкнули по кнопке');
+    // console.log('Вы клинкнули по кнопке');
 }
