@@ -6,7 +6,7 @@ $(document).ready(function () {
 });
 
 function pick(thisBtn) {
-  let imgSrc = $(thisBtn).parent().parent().parent().find('.minicard__image').attr('src');
+    let imgSrc = $(thisBtn).parent().parent().parent().find('.minicard__image').attr('src');
     let imgSrcTest = $(thisBtn).parent().parent().parent().find('.test-image').attr('src');
     let titleCard = $(thisBtn).parent().parent().find('.info__title--text').text();
     let adressCard = $(thisBtn).parent().parent().find('.adress').text();
@@ -16,11 +16,12 @@ function pick(thisBtn) {
     let actualCard = $(thisBtn).parent().find('.priceactual').text();
     let miniImage = $('.hotel__card ').find('.card__image--mini').attr('src');
     let miniTitle = $('.hotel__card ').find('.info__title--text').text();
-    let miniAdress = $('.hotel__card ').find('.adress').text();
-    let miniGuests = $('.hotel__card ').find('.guests').text();
-    let miniRoom = $('.hotel__card ').find('.roomcard').text();
+    let miniAdress = $('.hotel__card ').find('.bigadress').text();
+    let miniGuests = $('.hotel__card ').find('.bigguests').text();
+    let miniRoom = $('.hotel__card ').find('.bigroom').text();
     let miniFull= $('.hotel__card ').find('.price__full--text').text();
     let miniActual = $('.hotel__card ').find('.price__actual--text').text();
+    let test = $('.hotel__card ').find('.card__image').attr('src');
     let bigCard = `
             <div class="hotel__card active">
               <div class="hotel__card--image">
@@ -50,15 +51,15 @@ function pick(thisBtn) {
                 <div class="characters info__characters">
                   <div class="characters__block">
                     <img src="img/hero/map-pin.svg" alt="map-pin" class="characters__image">
-                    <span class="characters__text adress">${adressCard}</span>
+                    <span class="characters__text bigadress">${adressCard}</span>
                   </div>
                   <div class="characters__block">
                     <img src="img/hero/user.svg" alt="user" class="characters__image">
-                    <span class="characters__text guests">${guestsCard}</span>
+                    <span class="characters__text bigguests">${guestsCard}</span>
                   </div>
                   <div class="characters__block">
                     <img src="img/hero/home.svg" alt="home" class="characters__image">
-                    <span class="characters__text roomcard">${roomCard}</span>
+                    <span class="characters__text bigroom">${roomCard}</span>
                   </div>
                 </div>
                 <!-- /.characters info__characters -->
@@ -85,7 +86,7 @@ function pick(thisBtn) {
       <div class="miniflash">
         <span class="miniflash__text">Flash Offer</span>
       </div>
-      <img src="${imgSrcTest}" alt="test" class="test-image">
+      <img src="${test}" alt="test" class="test-image">
       <img src="${miniImage}" alt="hotel2" class="minicard__image">
     </div>
     <!-- /.minihotel--image -->
@@ -126,6 +127,7 @@ function pick(thisBtn) {
   </div>
   <!-- /.minihotel__card -->
     `
+    
 
     if ($(window).find('.hotel__card')){
       $('.hotel__card').parent().removeClass('col-lg-8 col-md-8 col-sm-12 col-12');
